@@ -1,0 +1,96 @@
+body{
+  background-image: linear-gradient(to right, #00000081,#000000f8), url('../images/back-ground1.jpg');
+  background-position: center;
+  background-size: cover;
+  color: white;
+
+}
+
+/*COLOR CHANGER*/
+/*Credit and Source: http://codepen.io/thapliyalshivam/pen/dvgXVO*/
+.loader{
+  filter:hue-rotate(0deg);
+  color: linear-gradient(45deg,rgb(0, 255, 115),rgb(0, 255, 170));
+  animation:hue 5000ms infinite linear;
+}
+
+@keyframes spinify {
+  0% {
+    transform: translate(0px,0px);
+
+  }
+  33% {
+    transform: translate(0px,24px);
+    border-radius:100%;
+    width:10px;
+    height:10px;
+
+  }
+   66% {
+    transform:translate(0px,-16px);
+  }
+
+   88% {
+    transform:translate(0px,4px);
+
+  }
+  100% {
+    transform:translate(0px,0px);
+  }
+}
+@keyframes hue{
+  0%{filter: hue-rotate(0deg);}
+  100%{filter:hue-rotate(360deg);}
+
+}
+
+/* font-family: 'Grandstander', cursive;*/
+
+.nav-text{
+    font-size: 2em;
+    font-family: 'Grandstander', cursive;
+    font-weight: 500;
+}
+
+.nav-text-items{
+  font-size: 1.2em;
+  font-family: 'Grandstander', cursive;
+  font-weight: 500;
+}
+
+.centerstage{
+  margin: auto;
+
+}
+
+.postdate{
+  text-align: center;
+}
+
+.post-title{
+  font-family: 'Grandstander', sans-serif;
+  font-size: 3em;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.postcontent{
+  font-family: 'Grandstander', cursive;
+  font-size: 1.4em;
+  color: #faf8a4;
+}
+
+.centerstage{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-comment{
+  position: absolute;
+  right: 0px;
+}
+
+.bigbrand{
+  font-size: 1.5em;
+}
+

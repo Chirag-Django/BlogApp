@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title %}{% endblock %}
+{% block content %}
+<div class="centerstage">
+    <h2 class="post-title loader">{{post.title}}</h2>
+    {% if post.published_date %}
+    <div class="date postdate">
+        {{post.published_date}}
+    </div>
+    {% else %}
+
+    {% endif %}
+    {% if post.published_date %}
+    <h5 class="postcontent">{{post.text|safe|linebreaks}}</h5>
+    {% elif not post.published_date and user.is_authenticated  and post.author == request.user%}
+    <a  class="btn btn-success" href="{% url 'post_publish' pk=post.pk %}">Publish The Article!</a>
+    <h5 class="postcontent">{{post.text|safe|linebreaks}}</h5>
+    {% else %}
+    <h3><em>Work in progress...</em></h3>
+    {% endif %}
+    {% if user.is_authenticated and post.author == request.user %}
+
+
+    <a class="btn btn-primary" href="{% url 'post_update' pk=post.pk %}">Edit Post</a>
+    <a class="btn btn-danger" href="{% url 'post_delete' pk=post.pk %}">Delete Post</a>
+    {% endif %}
+
+    <hr>
+    {% if user.is_authenticated %}
+    <a class="btn btn-primary" href="{% url 'add_comment_to_post' pk=post.pk %}">
+        Add Comments
+    </a>
+    {% endif %}
+    <div class="container">
+        {% for comment in post.comments.all %}
+        <br>
+        {% if comment.approved_comment  %}
+        {{comment.create_date}}
+        <h6>{{comment.text|safe|linebreaks}}</h6>
+        <p>Posted By: {{comment.author}}</p>
+        {%endif%}
+
+        {% if not comment.approved_comment and post.author == request.user %}
+
+        <a class="btn btn-primary" href="{% url 'comment_approve' pk=comment.pk %}">Approve Comment</a>
+        <a class="btn btn-warning" href="{% url 'comment_remove' pk=comment.pk %}">Remove Comment</a>
+        <p>{{comment.text|safe|linebreaks}}</p>
+        <p>Posted By: {{comment.author}}</p>
+        {%endif%}
+        {% empty %}
+        <p>No comments yet..</p>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+{% endblock %}

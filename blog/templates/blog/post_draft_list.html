@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}{% endblock %}
+{% block content %}
+
+    {% if post_list %}
+    {% for post in post_list %}
+    <div class="post">
+        <h1 class="post-title"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h1>
+        <h5>Created: {{post.create_date|date:'d-m-Y'}}</h5>
+        <h4 class="postcontent">{{post.text|safe|truncatechars:200}}</h4>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="jumbotron mt-5">
+        <h3 align="center">No articles in Drafts...</h3>
+    </div>
+    {% endif %}
+{% endblock %}
