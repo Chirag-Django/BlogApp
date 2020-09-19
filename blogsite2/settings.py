@@ -92,6 +92,7 @@ DATABASES = {
         'USER': 'chirag',
         'PASSWORD': 'chirag123',
         'HOST': 'blogsitedb.cc8e8nokl8ge.ap-south-1.rds.amazonaws.com',
+        'PORT': '3306'
     }
 }
 
