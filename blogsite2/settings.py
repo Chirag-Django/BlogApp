@@ -88,10 +88,10 @@ WSGI_APPLICATION = 'blogsite2.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'blogsitedb',
+        'NAME': 'blogappdb',
         'USER': 'chirag',
         'PASSWORD': 'chirag123',
-        'HOST': 'blogsitedb.cc8e8nokl8ge.ap-south-1.rds.amazonaws.com',
+        'HOST': 'database-1.cc8e8nokl8ge.ap-south-1.rds.amazonaws.com',
         'PORT': '3306'
     }
 }
